@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Pull docker image
+      docker_image:
+        name: linuxserver/sabnzbd
+
+    - name: Start docker container
+      docker_container:
+        name: sabnzbd
+        image: linuxserver/sabnzbd
+        state: started
+        volumes:
+          - "/scratch/docker/volumes/sabnzbd:/config"
+          - "/etc/localtime:/etc/localtime:ro"
+        ports:
+          - 8080:8080
