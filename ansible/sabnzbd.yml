@@ -19,6 +19,5 @@
         restart_policy: always
         ports:
           - "8080:8080"
-        volumes:
-          - '{{ item }}'
+        volumes: "{{ item }}"
       with_items: "{{ docker_volumes }}"
