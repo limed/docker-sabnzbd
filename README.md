@@ -1,14 +1,27 @@
-Docker deployment of sabnzbd which uses the linuxserver/sabnzbd image.
+Docker deployment of sabnzbd which uses the linuxserver/sabnzbd image. You must be in the base folder of this project
 
-If we choose to deploy our own image we need to create a Dockerfile on the root of this folder and then run the following command:
+#### Building docker image
+Make sure you are logged in to docker hub:
 
 ```bash
-# docker build -t sabnzbd .
-# docker push yourusername/nameofimage
+$ docker login
 ```
 
-After that just make sure you edit the name of the image in ansible and run the following command:
+Build your image:
 
 ```bash
-# ansible-playbook -i ansible/sabnzbd.yml
+$ docker build -t yourusername/sabnzbd .
+```
+
+Push image to hub:
+
+```bash
+$ docker push yourusername/sabnzbd
+```
+
+#### Starting container
+Note you must be in the base folder of this project otherwise it will not work
+
+```bash
+$ ansible-playbook ansible/sabnzbd.yml
 ```

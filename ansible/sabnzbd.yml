@@ -1,18 +1,21 @@
 ---
 - hosts: localhost
   connection: local
+  vars_files:
+    - './vars/main.yml'
+
   tasks:
     - name: Pull docker image
       docker_image:
-        name: linuxserver/sabnzbd
+        name: "{{ image_name }}"
 
     - name: Start docker container
       docker_container:
         name: sabnzbd
-        image: linuxserver/sabnzbd
+        image: "{{ image_name }}"
         state: started
-        volumes:
-          - "/scratch/docker/volumes/sabnzbd:/config"
-          - "/etc/localtime:/etc/localtime:ro"
         ports:
-          - 8080:8080
+          - "8080:8080"
+        volumes:
+          - '{{ item }}'
+      with_items: "{{ docker_volumes }}"

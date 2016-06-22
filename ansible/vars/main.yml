@@ -1,0 +1,5 @@
+image_name: limed/sabnzbd
+
+docker_volumes:
+  - "/scratch/docker/volumes/sabnzbd:/config"
+  - "/etc/localtime:/etc/localtime:ro"
