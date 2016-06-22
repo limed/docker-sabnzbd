@@ -20,7 +20,9 @@ CMD [ "mkdir -p /nzb", "mkdir -p /config", "mkdir -p /downloads" ]
 # Create various nzb directories
 CMD [ "mkdir -p /nzb/daemon.bak", "mkdir -p /nzb/daemon.cache", "mkdir -p /nzb/daemon.incomplete", "mkdir -p /nzb/daemon.queue" ]
 
-VOLUME /nzb /config /downloads
+VOLUME /nzb
+VOLUME /config
+VOLUME /downloads
 
 # copy supervisord
 COPY files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
