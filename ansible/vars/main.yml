@@ -1,7 +1,4 @@
 ---
+container_name: sabnzbd
 image_name: limed/sabnzbd
-docker_volumes:
-  - /scratch/docker/sabnzbd/config:/config
-  - /data/sabnzbd/downloads:/downloads
-  - /data/sabnzbd/nzb:/nzb
-  - /etc/localtime:/etc/localtime:ro
+container_state: started

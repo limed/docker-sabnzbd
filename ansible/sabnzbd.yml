@@ -12,12 +12,15 @@
 
     - name: Start docker container
       docker_container:
-        name: sabnzbd
+        name: "{{ container_name }}"
         image: "{{ image_name }}"
-        state: started
+        state: "{{ container_state }}"
         restart: true
         restart_policy: always
         ports:
           - "8080:8080"
-        volumes: "{{ item }}"
-      with_items: "{{ docker_volumes }}"
+        volumes:
+          - /scratch/docker/sabnzbd/config:/config
+          - /scratch/docker/sabnzbd/downloads:/downloads
+          - /scratch/docker/sabnzbd/nzb:/nzb
+          - /etc/localtime:/etc/localtime:ro
