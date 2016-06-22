@@ -25,3 +25,15 @@ Note you must be in the base folder of this project otherwise it will not work
 ```bash
 $ ansible-playbook ansible/sabnzbd.yml
 ```
+
+If you don't want to do it via ansible you can do this
+
+```bash
+docker run -d \
+    -v /* your config location */:/config \
+    -v /* your download location */:/downloads \
+    -v /* your nzb location */: /nzb \
+    -p 8080:8080 \
+    --restart=always \
+    sabnzbd
+```
