@@ -2,9 +2,9 @@
 FROM limed/ubuntu-base:latest
 MAINTAINER limed@sudoers.org
 
-RUN add-apt-repository -y  ppa:jcfp/ppa && \
-    apt-get -q update && \
-    apt-get install -qy --force-yes sabnzbdplus\
+RUN add-apt-repository -y  ppa:jcfp/ppa \
+    && apt-get -q update \
+    && apt-get install -qy --force-yes sabnzbdplus\
                                     sabnzbdplus-theme-classic \
                                     sabnzbdplus-theme-mobile \
                                     sabnzbdplus-theme-plush \
@@ -12,10 +12,10 @@ RUN add-apt-repository -y  ppa:jcfp/ppa && \
                                     python-yenc \
                                     unzip \
                                     unrar \
-    apt-get -y autoremove && \
-    apt-get -y clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    rm -rf /tmp/*
+    && apt-get -y autoremove \
+    && apt-get -y clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /tmp/*
 
 # mkdir directories
 CMD [ "mkdir -p /nzb", "mkdir -p /config", "mkdir -p /downloads" ]
