@@ -16,6 +16,10 @@ RUN add-apt-repository -y  ppa:jcfp/ppa \
 
 # mkdir directories
 CMD [ "mkdir -p /nzb", "mkdir -p /config", "mkdir -p /downloads" ]
+
+# Create various nzb directories
+CMD [ "mkdir -p /nzb/daemon.bak", "mkdir -p /nzb/daemon.cache", "mkdir -p /nzb/daemon.incomplete", "mkdir -p /nzb/daemon.queue" ]
+
 VOLUME /nzb /config /downloads
 
 # copy supervisord
