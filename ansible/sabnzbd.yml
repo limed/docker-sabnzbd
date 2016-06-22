@@ -21,6 +21,6 @@
           - "8080:8080"
         volumes:
           - /scratch/docker/sabnzbd/config:/config
-          - /scratch/docker/sabnzbd/downloads:/downloads
-          - /scratch/docker/sabnzbd/nzb:/nzb
+          - /data/sabnzbd/downloads:/downloads
+          - /data/sabnzbd/nzb:/nzb
           - /etc/localtime:/etc/localtime:ro
