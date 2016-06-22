@@ -8,6 +8,7 @@
     - name: Pull docker image
       docker_image:
         name: "{{ image_name }}"
+        rm: true
 
     - name: Start docker container
       docker_container:
