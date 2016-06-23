@@ -15,7 +15,9 @@ RUN add-apt-repository -y  ppa:jcfp/ppa \
     && rm -rf /tmp/*
 
 # mkdir directories
-CMD [ "mkdir -p /nzb", "mkdir -p /config", "mkdir -p /downloads" ]
+RUN mkdir -p /nzb && \
+    mkdir -p /config && \
+    mkdir -p /downloads
 
 # Other volumes here
 VOLUME /nzb
