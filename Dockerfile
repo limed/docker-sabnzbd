@@ -25,6 +25,7 @@ VOLUME /downloads
 # copy supervisord
 COPY files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-EXPOSE 8080 9090
+EXPOSE 8080
+EXPOSE 9090
 
 CMD [ "/usr/bin/supervisord" ]
