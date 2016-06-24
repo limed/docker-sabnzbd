@@ -21,6 +21,6 @@
           - "9090:9090"
         volumes:
           - /scratch/docker/sabnzbd/config:/config
-          - /data/sabnzbd/downloads:/downloads
-          - /data/sabnzbd/nzb:/nzb
+          - /data/sabnzbd/downloads:/data/sabnzbd/downloads
+          - /data/sabnzbd/nzb:/data/sabnzbd/nzb
           - /etc/localtime:/etc/localtime:ro

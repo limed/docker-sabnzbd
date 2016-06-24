@@ -15,14 +15,16 @@ RUN add-apt-repository -y  ppa:jcfp/ppa \
     && rm -rf /tmp/*
 
 # mkdir directories
-RUN mkdir -p /nzb && \
-    mkdir -p /config && \
-    mkdir -p /downloads
+RUN mkdir -p /config && \
+    mkdir -p /data/sabnzbd/downloads && \
+    mkdir -p /data/sabnzbd/nzb && \
+    chmod 777 /data/sabnzbd/downloads 
+
 
 # Other volumes here
-VOLUME /nzb
 VOLUME /config
-VOLUME /downloads
+VOLUME /data/sabnzbd/downloads
+VOLUME /data/sabnzbd/nzb
 
 # copy supervisord
 COPY files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
