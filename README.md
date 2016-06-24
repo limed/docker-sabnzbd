@@ -1,14 +1,8 @@
+### Docker sabnzbd
 Docker deployment of sabnzbd which uses the linuxserver/sabnzbd image. You must be in the base folder of this project
 
 #### Building docker image
-Make sure you are logged in to docker hub:
-
-```bash
-$ docker login
-```
-
-Build your image:
-
+Building your image
 ```bash
 $ docker build -t yourusername/sabnzbd .
 ```
@@ -29,11 +23,13 @@ $ ansible-playbook ansible/sabnzbd.yml
 If you don't want to do it via ansible you can do this
 
 ```bash
-docker run -d \
+$ docker pull yourusername/sabnzbd
+$ docker run -d \
     -v /* your config location */:/config \
-    -v /* your download location */:/downloads \
-    -v /* your nzb location */: /nzb \
-    -p 8080:8080 \
+    -v /* your download location */:/data/sabnzbd/downloads \
+    -v /* your nzb location */: /data/sabnzbd/nzb \
+    -p 127.0.0.1:8080:8080 \
     --restart=always \
-    sabnzbd
+    --name sabnzbd
+    yourusername/sabnzbd
 ```
