@@ -18,8 +18,7 @@ RUN add-apt-repository -y  ppa:jcfp/ppa \
 RUN mkdir -p /config && \
     mkdir -p /data/sabnzbd/downloads && \
     mkdir -p /data/sabnzbd/nzb && \
-    chmod 777 /data/sabnzbd/downloads 
-
+    chmod 777 /data/sabnzbd/downloads
 
 # Other volumes here
 VOLUME /config
