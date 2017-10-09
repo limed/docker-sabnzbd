@@ -7,6 +7,8 @@ RUN add-apt-repository -y  ppa:jcfp/ppa \
     && apt-get -q update \
     && apt-get install -qy --force-yes  sabnzbdplus\
                                         par2 \
+                                        par2-tbb \
+                                        python-sabyenc \
                                         python-yenc \
                                         unzip \
                                         unrar \
