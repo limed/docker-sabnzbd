@@ -3,6 +3,7 @@ FROM limed/ubuntu-base:14.04
 MAINTAINER limed@sudoers.org
 
 RUN add-apt-repository -y  ppa:jcfp/ppa \
+    && add-apt-repository -y ppa:jcfp/sab-addons \
     && apt-get -q update \
     && apt-get install -qy --force-yes  sabnzbdplus\
                                         par2 \
