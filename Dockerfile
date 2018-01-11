@@ -8,6 +8,7 @@ RUN add-apt-repository -y  ppa:jcfp/ppa \
     && apt-get install -qy --force-yes  sabnzbdplus\
                                         par2-tbb \
                                         python-sabyenc \
+                                        python-cryptography \
                                         unzip \
                                         unrar \
     && apt-get -y autoremove \
