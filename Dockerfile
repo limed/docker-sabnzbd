@@ -11,6 +11,7 @@ RUN add-apt-repository -y  ppa:jcfp/ppa \
                                         python-cryptography \
                                         unzip \
                                         unrar-free \
+                                        p7zip-full \
     && apt-get -y autoremove \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* \
