@@ -1,5 +1,5 @@
 # vim: set filetype=dockerfile
-FROM limed/ubuntu-base:14.04
+FROM limed/ubuntu-base:latest
 MAINTAINER limed@sudoers.org
 
 RUN add-apt-repository -y  ppa:jcfp/ppa \
@@ -10,22 +10,18 @@ RUN add-apt-repository -y  ppa:jcfp/ppa \
                                         python-sabyenc \
                                         python-cryptography \
                                         unzip \
-                                        unrar \
+                                        unrar-free \
     && apt-get -y autoremove \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /tmp/*
-
-# mkdir directories
-RUN mkdir -p /config && \
-    mkdir -p /data/sabnzbd/downloads && \
-    mkdir -p /data/sabnzbd/nzb && \
-    chmod 777 /data/sabnzbd/downloads
+    && rm -rf /tmp/* \
+    && mkdir -p /config \
+    && mkdir -p /data/sabnzbd/downloads \
+    && mkdir -p /data/sabnzbd/nzb \
+    && chmod 777 /data/sabnzbd/downloads
 
 # Other volumes here
-VOLUME /config
-VOLUME /data/sabnzbd/downloads
-VOLUME /data/sabnzbd/nzb
+VOLUME [ "/config", "/data/sabnzbd/downloads", "/data/sabnzbd/nzb" ]
 
 # copy supervisord
 COPY files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
