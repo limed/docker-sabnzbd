@@ -5,7 +5,7 @@ MAINTAINER limed@sudoers.org
 RUN add-apt-repository -y  ppa:jcfp/ppa \
     && add-apt-repository -y ppa:jcfp/sab-addons \
     && apt-get -q update \
-    && apt-get install -qy --force-yes  sabnzbdplus\
+    && apt-get install --no-install-recommends -qy sabnzbdplus\
                                         par2-tbb \
                                         python-sabyenc \
                                         python-cryptography \
