@@ -10,7 +10,7 @@ RUN add-apt-repository -y  ppa:jcfp/ppa \
                                         python-sabyenc \
                                         python-cryptography \
                                         unzip \
-                                        unrar-free \
+                                        unrar \
                                         p7zip-full \
     && apt-get -y autoremove \
     && apt-get -y clean \
