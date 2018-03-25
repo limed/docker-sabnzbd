@@ -12,6 +12,8 @@ RUN add-apt-repository -y  ppa:jcfp/ppa \
                                         unzip \
                                         unrar \
                                         p7zip-full \
+                                        locales \
+    && locale-gen "en_US.UTF-8" \
     && apt-get -y autoremove \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* \
