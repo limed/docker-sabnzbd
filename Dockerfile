@@ -1,5 +1,5 @@
 # vim: set filetype=dockerfile
-FROM limed/ubuntu-base:latest
+FROM limed/ubuntu-base:16.04
 MAINTAINER limed@sudoers.org
 
 RUN add-apt-repository -y  ppa:jcfp/ppa \
